@@ -1,0 +1,8 @@
+user\UserClient.class
+page\ProfilePage.class
+page\RegisterPage.class
+page\ForgotPassPage.class
+user\UserCredentials.class
+page\MainPage.class
+user\User.class
+page\LoginPage.class
