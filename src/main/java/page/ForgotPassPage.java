@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +37,7 @@ public class ForgotPassPage {
      */
 
     //Метод вызова страницы авторизации
+    @Step("Calling the authorization page")
     public ForgotPassPage getForgotPassPage() {
         driver.get(FORGOT_PASS_PAGE_URL);
         new WebDriverWait(driver, 5)
@@ -44,6 +46,7 @@ public class ForgotPassPage {
     }
 
     //Метод клика ссылки на страницу авторизации
+    @Step("Click the link to the authorization page")
     public ForgotPassPage loginLinkClick() {
         loginLink.click();
         return this;

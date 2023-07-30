@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -51,6 +52,7 @@ public class MainPage {
      */
 
     //Метод вызова главной страницы
+    @Step("Calling the main page")
     public MainPage getMainPage() {
         driver.get(MAIN_PAGE_URL);
         new WebDriverWait(driver, 5)
@@ -59,6 +61,7 @@ public class MainPage {
     }
 
     //метод проверки отображения главной страницы
+    @Step("Checking the display of the main page")
     public MainPage mainPageIsDisplayed() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(orderButton));
@@ -67,18 +70,21 @@ public class MainPage {
     }
 
     //Метод клика на кнопку перехода в Личный кабинет
+    @Step("Click on the button to go to your Personal account")
     public MainPage profileButtonClick() {
         profileButton.click();
         return this;
     }
 
     //Метод клика на кнопку "Войти в аккаунт"
+    @Step("Click on the \"Log in to account\" button")
     public MainPage accountEnterButtonClick() {
         accountEnterButton.click();
         return this;
     }
 
     //Метод проверки видимости кнопки "Оформить заказ"
+    @Step("Checking the visibility of the \"Checkout\" button")
     public MainPage checkOrderButton() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(orderButton));
@@ -87,24 +93,28 @@ public class MainPage {
     }
 
     //Метод клика на кнопку раздела "Булки"
+    @Step("Click on the button of the \"Булки\" section")
     public MainPage bunButtonClick() {
         bunButton.click();
         return this;
     }
 
     //Метод клика на кнопку раздела "Соусы"
+    @Step("Click on the button of the \"Соусы\" section")
     public MainPage sauceButtonClick() {
         sauceButton.click();
         return this;
     }
 
     //Метод клика на кнопку раздела "Начинки"
+    @Step("Click on the button of the \"Начинки\" section")
     public MainPage fillingButtonClick() {
         fillingButton.click();
         return this;
     }
 
-    //Метод проверки изменения класса у активного элемнта "Булки>"
+    //Метод проверки изменения класса у активного элемнта "Булки"
+    @Step("Checking for class changes in the active element \"Булки\"")
     public MainPage bunScrollCheck() {
         sauceButtonClick();
         bunButtonClick();
@@ -117,6 +127,7 @@ public class MainPage {
     }
 
     //Метод проверки изменения класса у активного элемнта "Соусы"
+    @Step("Checking for class changes in the active element \"Соусы\"")
     public MainPage sauceScrollCheck() {
         sauceButtonClick();
         new WebDriverWait(driver, 5)
@@ -128,6 +139,7 @@ public class MainPage {
     }
 
     //Метод проверки изменения класса у активного элемнта "Начинки"
+    @Step("Checking for class changes in the active element \"Начинки\"")
     public MainPage fillingScrollCheck() {
         fillingButtonClick();
         new WebDriverWait(driver, 5)

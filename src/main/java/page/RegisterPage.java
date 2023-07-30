@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -64,6 +65,7 @@ public class RegisterPage {
      */
 
     //Метод вызова страницы регистрации
+    @Step("Calling the registration page")
     public RegisterPage getRegisterPage() {
         driver.get(REGISTER_PAGE_URL);
         new WebDriverWait(driver, 5)
@@ -72,48 +74,56 @@ public class RegisterPage {
     }
 
     //Метод ввода символов в поле Имя
+    @Step("Entering characters in the Name field")
     public RegisterPage setNameField() {
         nameField.sendKeys(NAME);
         return this;
     }
 
     //Метод ввода символов в поле Почта
+    @Step("Entering characters in the Email field")
     public RegisterPage setEmailField() {
         emailField.sendKeys(EMAIL);
         return this;
     }
 
     //Метод ввода символов в поле Пароль
+    @Step("Entering characters in the Password field")
     public RegisterPage setPasswordField() {
         passwordField.sendKeys(PASSWORD);
         return this;
     }
 
     //Метод ввода некорректного пароля из 5-и символов
+    @Step("Entering an incorrect password")
     public RegisterPage setIncorrectPassword() {
         passwordField.sendKeys(RandomStringUtils.randomAlphanumeric(5));
         return this;
     }
 
     //Метод клика на кнопку регистрации
+    @Step("Click on the registration button")
     public RegisterPage registerButtonClick() {
         registerButton.click();
         return this;
     }
 
     //Метод проверки отображения сообщения об ошибке поля Пароль
+    @Step("Checking the display of the Password field error message")
     public RegisterPage passErrorIsDisplayed() {
         Assert.assertTrue(passErrorText.isDisplayed());
         return this;
     }
 
     //Метод клика ссылки на страницу авторизации
+    @Step("Clicking the link to the authorization page")
     public RegisterPage loginLinkClick() {
         loginLink.click();
         return this;
     }
 
     //Метод заполнения формы регистрации
+    @Step("Filling out the registration form")
     public void registration() {
         setNameField();
         setEmailField();

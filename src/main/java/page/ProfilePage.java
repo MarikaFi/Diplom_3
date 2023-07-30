@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -45,6 +46,7 @@ public class ProfilePage {
      */
 
     //Метод вызова страницы авторизации
+    @Step("Calling the authorization page")
     public ProfilePage getProfilePage() {
         driver.get(ACCOUNT_PAGE_URL);
         new WebDriverWait(driver, 5)
@@ -53,6 +55,7 @@ public class ProfilePage {
     }
 
     //метод проверки отображения страницы профиля
+    @Step("Checking the profile page display")
     public ProfilePage profilePageIsDisplayed() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(profileText));
@@ -61,12 +64,14 @@ public class ProfilePage {
     }
 
     //Метод клика на кнопку "Конструктор"
+    @Step("Click on the \"Конструктор\" button")
     public ProfilePage constructorButtonClick() {
         constructorButton.click();
         return this;
     }
 
     //Метод клика на кнопку "Выход"
+    @Step("Click on the \"Выход\" button")
     public ProfilePage quitButtonClick() {
         quitButton.click();
         return this;

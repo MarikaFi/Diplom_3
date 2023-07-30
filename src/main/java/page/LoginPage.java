@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -45,6 +46,7 @@ public class LoginPage {
      */
 
     //Метод вызова страницы авторизации
+    @Step("Login page call")
     public LoginPage getLoginPage() {
         driver.get(LOGIN_PAGE_URL);
         new WebDriverWait(driver, 5)
@@ -53,6 +55,7 @@ public class LoginPage {
     }
 
     //метод проверки отображения страницы авторизации
+    @Step("Checking the display of the authorization page")
     public LoginPage loginPageIsDisplayed() {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.presenceOfElementLocated(enterText));
@@ -61,19 +64,22 @@ public class LoginPage {
     }
 
     //Метод ввода символов в поле Email
+    @Step("Entering characters in the Email field")
     public LoginPage setEmailField(String email) {
         emailField.sendKeys(email);
         return this;
     }
 
     //Метод ввода символов в поле Пароль
+    @Step("Entering characters in the Password field")
     public LoginPage setPasswordField(String password) {
         passwordField.sendKeys(password);
         return this;
     }
 
     //Метод авторизации пользователя
-    public LoginPage login(String email, String password){
+    @Step("User authorization")
+    public LoginPage login(String email, String password) {
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.elementToBeClickable(enterButton));
         setEmailField(email);
